@@ -1,9 +1,12 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
-function Main() {
-  return <h1>Main</h1>;
+export default function Main() {
+
+  return (
+    <Container>
+      <h1>Hello main</h1>
+    </Container>
+  );
 }
-
-export default Main;
