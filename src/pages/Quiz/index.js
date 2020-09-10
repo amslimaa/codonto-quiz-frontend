@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from './styles';
-
-import imgQ01 from '../../assets/imgQ1.png';
-
 import api from '../../services/api';
 
 export default function Quiz() {
@@ -19,8 +16,8 @@ export default function Quiz() {
   function handleFato(q) {
     const modal = document.getElementById('myModal');
     const span = document.getElementsByClassName('close')[0];
-    const response = document.getElementById('response');
-    console.log(q);
+    document.getElementById('response').innerText = q.response;
+
     modal.style.display = 'block';
     span.onclick = function () {
       modal.style.display = 'none';
@@ -36,6 +33,7 @@ export default function Quiz() {
   function handleFake(q) {
     const modal = document.getElementById('myModal');
     const span = document.getElementsByClassName('close')[0];
+    document.getElementById('response').innerText = q.response;
     modal.style.display = 'block';
     span.onclick = function () {
       modal.style.display = 'none';
@@ -69,7 +67,7 @@ export default function Quiz() {
                     <h2>Codonto Quiz Responde!!</h2>
                   </div>
                   <div className="modal-body">
-                    <p id="response">{q.response}</p>
+                    <p id="response"></p>
                   </div>
                   <div className="modal-footer">
                     <h3>Saiba Mais!</h3>
