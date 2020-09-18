@@ -48,6 +48,28 @@ export const Container = styled.div`
     button:hover {
       filter: brightness(90%);
     }
+    #btn {
+      width: 30%;
+      height: 20%px;
+      background: #e7f1f2;
+      border: 0;
+      border-radius: 100px;
+      color: #fff;
+      font-weight: 700;
+      margin-top: 16px;
+      margin-left: 30px;
+      display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      font-size: 18px;
+      line-height: 60px;
+    }
+    #btn:hover {
+      filter: brightness(90%);
+    }
+    #btnStart {
+      background-color: #e7f1f2;
+    }
   }
   #item-img {
     width: 25%;

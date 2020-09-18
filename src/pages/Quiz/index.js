@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Container } from './styles';
 import api from '../../services/api';
+import btnIniciar from '../../assets/btnIniciar.png';
+import logo from '../../assets/logo.png';
+import btnFato from '../../assets/btnFato.png';
+import btnFake from '../../assets/btnFake.png';
 
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
@@ -12,6 +16,11 @@ export default function Quiz() {
     }
     loadQuestions();
   }, []);
+
+  function handleStart() {
+    const items = document.querySelector('#Items');
+    items.scrollBy(300, 0);
+  }
 
   function handleFato(q) {
     const modal = document.getElementById('myModal');
@@ -50,30 +59,50 @@ export default function Quiz() {
     <Container>
       <div id="ItemsWrapper">
         <div id="Items">
+          <div id="Item">
+            <img id="item-img" src={logo} alt="" />
+            <p>
+              O codonto quiz, eh um jogo de perguntas e resposta que visa a
+              disseminacao de conteudos relacionados a odontologia e
+              biosseguranca
+            </p>
+            <img
+              id="btn"
+              onClick={() => handleStart()}
+              src={btnIniciar}
+              alt=""
+            />
+            <div id="myModal" className="modal">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <span className="close">&times;</span>
+                  <h2>Codonto Quiz Responde!!</h2>
+                </div>
+                <div className="modal-body">
+                  <p id="response" />
+                </div>
+                <div className="modal-footer">
+                  <h3>Saiba Mais!</h3>
+                </div>
+              </div>
+            </div>
+          </div>
           {questions.map((q) => (
             <div id="Item" key={q.id}>
               <img id="item-img" src={q.image.url} alt="" srcSet="" />
               <p>{q.question}</p>
-              <button id="myBtnTrue" onClick={() => handleFato(q)}>
-                Fato
-              </button>
-              <button id="myBtnFake" onClick={() => handleFake(q)}>
-                Fake
-              </button>
-              <div id="myModal" className="modal">
-                <div className="modal-content">
-                  <div className="modal-header">
-                    <span className="close">&times;</span>
-                    <h2>Codonto Quiz Responde!!</h2>
-                  </div>
-                  <div className="modal-body">
-                    <p id="response"></p>
-                  </div>
-                  <div className="modal-footer">
-                    <h3>Saiba Mais!</h3>
-                  </div>
-                </div>
-              </div>
+              <img
+                id="btn"
+                src={btnFato}
+                alt=""
+                onClick={() => handleFato(q)}
+              />
+              <img
+                id="btn"
+                src={btnFake}
+                alt=""
+                onClick={() => handleFake(q)}
+              />
             </div>
           ))}
         </div>
