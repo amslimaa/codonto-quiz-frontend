@@ -8,7 +8,7 @@ export default function Main() {
       <header>
         <ol>
           <li>Biosseguranca UFPI</li>
-          <li>Contato </li>
+          <li>Contato</li>
           <li>Quem somos </li>
           <li>A missao</li>
         </ol>
