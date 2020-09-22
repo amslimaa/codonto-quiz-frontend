@@ -2,12 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { Container } from './styles';
 import api from '../../services/api';
 import btnIniciar from '../../assets/btnIniciar.png';
+import JogarNovamente from '../../assets/JogarNovamente.png';
 import logo from '../../assets/logo.png';
 import btnFato from '../../assets/btnFato.png';
 import btnFake from '../../assets/btnFake.png';
 
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
+  const [hits, setHits] = useState(0);
 
   useEffect(() => {
     async function loadQuestions() {
@@ -23,6 +25,8 @@ export default function Quiz() {
   }
 
   function handleFato(q) {
+    if (q.fake === false) setHits(hits + 1);
+
     const modal = document.getElementById('myModal');
     const span = document.getElementsByClassName('close')[0];
     document.getElementById('response').innerText = q.response;
@@ -40,6 +44,8 @@ export default function Quiz() {
     };
   }
   function handleFake(q) {
+    if (q.fake === true) setHits(hits + 1);
+
     const modal = document.getElementById('myModal');
     const span = document.getElementsByClassName('close')[0];
     document.getElementById('response').innerText = q.response;
@@ -55,6 +61,11 @@ export default function Quiz() {
       }
     };
   }
+  function handleRestart() {
+    const items = document.querySelector('#Items');
+    items.scrollBy(-10000, 0);
+    setHits(0);
+  }
   return (
     <Container>
       <div id="ItemsWrapper">
@@ -62,9 +73,11 @@ export default function Quiz() {
           <div id="Item">
             <img id="item-img" src={logo} alt="" />
             <p>
-              O codonto quiz, eh um jogo de perguntas e resposta que visa a
-              disseminacao de conteudos relacionados a odontologia e
-              biosseguranca
+              Você sabe o que mudou nas medidas de biossegurança durante a
+              pandemia de COVID-19? Teste seus conhecimentos com o Codonto Quiz,
+              um jogo de perguntas e respostas que tem como intuito a divulgação
+              de conteúdos relacionados com Biossegurança em procedimentos
+              odontológicos.
             </p>
             <img
               id="btn"
@@ -91,20 +104,34 @@ export default function Quiz() {
             <div id="Item" key={q.id}>
               <img id="item-img" src={q.image.url} alt="" srcSet="" />
               <p>{q.question}</p>
-              <img
-                id="btn"
-                src={btnFato}
-                alt=""
-                onClick={() => handleFato(q)}
-              />
-              <img
-                id="btn"
-                src={btnFake}
-                alt=""
-                onClick={() => handleFake(q)}
-              />
+              <div id="imgButtons">
+                <img
+                  id="btn"
+                  src={btnFato}
+                  alt=""
+                  onClick={() => handleFato(q)}
+                />
+                <img
+                  id="btn"
+                  src={btnFake}
+                  alt=""
+                  onClick={() => handleFake(q)}
+                />
+              </div>
             </div>
           ))}
+          <div id="Item">
+            <img id="item-img" src={logo} alt="" />
+            <p>
+              Parabens Você acertou {hits} / {questions.length} questoes!
+            </p>
+            <img
+              id="btn"
+              onClick={() => handleRestart()}
+              src={JogarNovamente}
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </Container>

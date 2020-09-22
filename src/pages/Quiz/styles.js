@@ -23,41 +23,24 @@ export const Container = styled.div`
     width: 100vw;
     scroll-snap-align: start;
     flex: none;
+    object-fit: cover;
     p {
       margin: 15px;
       font-size: 24px;
       font-weight: bolder;
     }
-    object-fit: cover;
-    button {
-      width: 30%;
-      height: 20%px;
-      background: #fa991a;
-      border: 0;
-      border-radius: 8px;
-      color: #fff;
-      font-weight: 700;
-      margin-top: 16px;
-      margin-left: 30px;
-      display: inline-block;
-      text-align: center;
-      text-decoration: none;
-      font-size: 18px;
-      line-height: 60px;
-    }
-    button:hover {
-      filter: brightness(90%);
+    #imgButtons {
+      display: flex;
+      justify-content: space-around;
     }
     #btn {
       width: 30%;
       height: 20%px;
       background: #e7f1f2;
-      border: 0;
       border-radius: 100px;
       color: #fff;
       font-weight: 700;
       margin-top: 16px;
-      margin-left: 30px;
       display: inline-block;
       text-align: center;
       text-decoration: none;
