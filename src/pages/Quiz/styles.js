@@ -16,6 +16,7 @@ export const Container = styled.div`
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+    align-items: center;
   }
   #Item {
     margin-bottom: 45px;
@@ -54,6 +55,9 @@ export const Container = styled.div`
       background-color: #e7f1f2;
     }
   }
+  #logo-img {
+    width: 40%;
+  }
   #item-img {
     width: 25%;
   }
@@ -62,7 +66,7 @@ export const Container = styled.div`
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
+    padding-top: 20px; /* Location of the box */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -72,6 +76,9 @@ export const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   }
 
+  #response {
+    font-size: 15px;
+  }
   /* Modal Content */
   .modal-content {
     position: relative;

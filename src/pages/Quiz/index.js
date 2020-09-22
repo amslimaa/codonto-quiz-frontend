@@ -45,7 +45,6 @@ export default function Quiz() {
   }
   function handleFake(q) {
     if (q.fake === true) setHits(hits + 1);
-
     const modal = document.getElementById('myModal');
     const span = document.getElementsByClassName('close')[0];
     document.getElementById('response').innerText = q.response;
@@ -71,7 +70,7 @@ export default function Quiz() {
       <div id="ItemsWrapper">
         <div id="Items">
           <div id="Item">
-            <img id="item-img" src={logo} alt="" />
+            <img id="logo-img" src={logo} alt="" />
             <p>
               Você sabe o que mudou nas medidas de biossegurança durante a
               pandemia de COVID-19? Teste seus conhecimentos com o Codonto Quiz,
