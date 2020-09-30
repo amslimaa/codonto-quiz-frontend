@@ -118,15 +118,14 @@ export const Container = styled.div`
   }
 
   /* The Close Button */
-  .close {
+  .next {
     color: white;
-    float: right;
     font-size: 28px;
     font-weight: bold;
   }
 
-  .close:hover,
-  .close:focus {
+  .next:hover,
+  .next:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;

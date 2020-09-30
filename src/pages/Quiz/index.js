@@ -28,7 +28,7 @@ export default function Quiz() {
     if (q.fake === false) setHits(hits + 1);
 
     const modal = document.getElementById('myModal');
-    const span = document.getElementsByClassName('close')[0];
+    const span = document.getElementsByClassName('next')[0];
     document.getElementById('response').innerText = q.response;
 
     modal.style.display = 'block';
@@ -45,8 +45,9 @@ export default function Quiz() {
   }
   function handleFake(q) {
     if (q.fake === true) setHits(hits + 1);
+
     const modal = document.getElementById('myModal');
-    const span = document.getElementsByClassName('close')[0];
+    const span = document.getElementsByClassName('next')[0];
     document.getElementById('response').innerText = q.response;
     modal.style.display = 'block';
     span.onclick = function () {
@@ -62,7 +63,7 @@ export default function Quiz() {
   }
   function handleRestart() {
     const items = document.querySelector('#Items');
-    items.scrollBy(-10000, 0);
+    items.scrollBy(-20000, 0);
     setHits(0);
   }
   return (
@@ -87,14 +88,13 @@ export default function Quiz() {
             <div id="myModal" className="modal">
               <div className="modal-content">
                 <div className="modal-header">
-                  <span className="close">&times;</span>
                   <h2>Codonto Quiz Responde!!</h2>
                 </div>
                 <div className="modal-body">
                   <p id="response" />
                 </div>
                 <div className="modal-footer">
-                  <h3>Saiba Mais!</h3>
+                  <span className="next">Entendido!</span>
                 </div>
               </div>
             </div>
