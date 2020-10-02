@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import bgImage from '../assets/background.png';
+import './fonts.css';
 
 export default createGlobalStyle`
   * {
@@ -21,7 +22,8 @@ export default createGlobalStyle`
   body, input, button {
     color: #333;
     font-size: 14px;
-    font-family: Arial, Helvetica, sans-serif
+    font-family: Helvetica, sans-serif;
+
   }
   button {
     cursor: pointer;

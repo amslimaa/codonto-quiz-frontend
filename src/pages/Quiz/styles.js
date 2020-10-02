@@ -1,10 +1,13 @@
 import styled from 'styled-components';
+import '../../styles/fonts.css';
 
 export const Container = styled.div`
-  margin: 0;
-  padding: 0;
-  outline: 0;
-  box-sizing: border-box;
+  * {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+  }
   #ItemsWrapper {
     width: 100vw;
   }
@@ -18,6 +21,7 @@ export const Container = styled.div`
     scroll-behavior: smooth;
     align-items: center;
   }
+
   #Item {
     margin-bottom: 45px;
     pointer-events: auto;
@@ -25,10 +29,31 @@ export const Container = styled.div`
     scroll-snap-align: start;
     flex: none;
     object-fit: cover;
+    overflow-x: auto;
+    padding-right: 10%;
+    padding-left: 10%;
+
+    .startGameContainerText {
+      border-radius: 10px;
+      background-color: #6fa2b9;
+      color: #fff;
+      flex: none;
+      p {
+        font-size: 30px;
+        font-weight: bolder;
+        letter-spacing: 0.1rem;
+      }
+    }
     p {
-      margin: 15px;
-      font-size: 24px;
+      font-size: 30px;
       font-weight: bolder;
+      letter-spacing: 0.1rem;
+    }
+    .startQuestion {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: #fa991a;
+      font-family: 'Bebas Neue', cursive;
     }
     #imgButtons {
       display: flex;
@@ -36,7 +61,7 @@ export const Container = styled.div`
     }
     #btn {
       width: 30%;
-      height: 20%px;
+      height: 20%;
       background: #e7f1f2;
       border-radius: 100px;
       color: #fff;
@@ -55,8 +80,20 @@ export const Container = styled.div`
       background-color: #e7f1f2;
     }
   }
+  @media (max-width: 630px) {
+    #Item {
+      .startGameContainerText {
+        p {
+          font-size: 15px;
+        }
+      }
+      .startQuestion {
+        font-size: 15px;
+      }
+    }
+  }
   #logo-img {
-    width: 40%;
+    width: 55%;
   }
   #item-img {
     width: 25%;

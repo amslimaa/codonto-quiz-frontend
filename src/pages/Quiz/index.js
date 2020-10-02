@@ -72,13 +72,19 @@ export default function Quiz() {
         <div id="Items">
           <div id="Item">
             <img id="logo-img" src={logo} alt="" />
-            <p>
+            <p className="startQuestion">
               Você sabe o que mudou nas medidas de biossegurança durante a
-              pandemia de COVID-19? Teste seus conhecimentos com o Codonto Quiz,
-              um jogo de perguntas e respostas que tem como intuito a divulgação
-              de conteúdos relacionados com Biossegurança em procedimentos
-              odontológicos.
+              pandemia de COVID-19?
             </p>
+            <div className="startGameContainerText">
+              <p>
+                Teste seus conhecimentos com o Codonto Quiz, um jogo de
+                perguntas e respostas que tem como intuito a divulgação de
+                conteúdos relacionados com Biossegurança em procedimentos
+                odontológicos.
+              </p>
+            </div>
+
             <img
               id="btn"
               onClick={() => handleStart()}
@@ -102,7 +108,9 @@ export default function Quiz() {
           {questions.map((q) => (
             <div id="Item" key={q.id}>
               <img id="item-img" src={q.image.url} alt="" srcSet="" />
-              <p>{q.question}</p>
+              <div className="startGameContainerText">
+                <p>{q.question}</p>
+              </div>
               <div id="imgButtons">
                 <img
                   id="btn"
