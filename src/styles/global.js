@@ -10,12 +10,13 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   html, body, #root {
-    display: grid;
-    place-items: center;
-    height: 100vh;
+
   }
 
   body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
     background-image: url(${bgImage});
     -webkit-font-smoothing: antialiased !important;
   }

@@ -9,7 +9,7 @@ export const Container = styled.div`
     box-sizing: border-box;
   }
   #ItemsWrapper {
-    width: 100vw;
+    width: 95vw;
   }
   #Items {
     pointer-events: none;
@@ -21,18 +21,16 @@ export const Container = styled.div`
     scroll-behavior: smooth;
     align-items: center;
   }
-
   #Item {
-    margin-bottom: 45px;
+    flex-direction: column;
     pointer-events: auto;
-    width: 100vw;
+    width: 100%;
+    height: 100%;
     scroll-snap-align: start;
     flex: none;
-    object-fit: cover;
     overflow-x: auto;
-    padding-right: 10%;
-    padding-left: 10%;
-
+    padding-right: 10px;
+    padding-left: 10px;
     .startGameContainerText {
       border-radius: 10px;
       background-color: #6fa2b9;
@@ -56,6 +54,7 @@ export const Container = styled.div`
       font-family: 'Bebas Neue', cursive;
     }
     #imgButtons {
+      object-fit: cover;
       display: flex;
       justify-content: space-around;
     }
@@ -82,6 +81,13 @@ export const Container = styled.div`
   }
   @media (max-width: 630px) {
     #Item {
+      #btn {
+        width: 40%;
+        height: 20%;
+      }
+      .textResponse {
+        font-size: 16px;
+      }
       .startGameContainerText {
         p {
           font-size: 15px;
@@ -89,6 +95,12 @@ export const Container = styled.div`
       }
       .startQuestion {
         font-size: 15px;
+      }
+      #item-img {
+        width: 60%;
+      }
+      #logo-img {
+        width: 70%;
       }
     }
   }
@@ -168,19 +180,28 @@ export const Container = styled.div`
     cursor: pointer;
   }
 
-  .modal-header {
+  .modal-header-true {
+    padding: 2px 16px;
+    background-color: white;
+    color: #5cb85c;
+  }
+  .modal-header-fake {
+    padding: 2px 16px;
+    background-color: white;
+    color: #d35230;
+  }
+  .modal-body-true {
     padding: 2px 16px;
     background-color: #5cb85c;
     color: white;
   }
-
-  .modal-body {
+  .modal-body-fake {
     padding: 2px 16px;
+    background-color: #d35230;
+    color: white;
   }
-
   .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
     color: white;
   }
 `;

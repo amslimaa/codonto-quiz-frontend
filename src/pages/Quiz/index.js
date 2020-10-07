@@ -6,10 +6,12 @@ import JogarNovamente from '../../assets/JogarNovamente.png';
 import logo from '../../assets/logo.png';
 import btnFato from '../../assets/btnFato.png';
 import btnFake from '../../assets/btnFake.png';
+import btnNext from '../../assets/btnNext.png';
 
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
   const [hits, setHits] = useState(0);
+  const [modalColor, setModalColor] = useState('');
 
   useEffect(() => {
     async function loadQuestions() {
@@ -25,12 +27,40 @@ export default function Quiz() {
   }
 
   function handleFato(q) {
-    if (q.fake === false) setHits(hits + 1);
+    if (q.fake === false) {
+      setHits(hits + 1);
+      setModalColor('true');
+    } else {
+      setModalColor('fake');
+    }
 
     const modal = document.getElementById('myModal');
     const span = document.getElementsByClassName('next')[0];
     document.getElementById('response').innerText = q.response;
 
+    modal.style.display = 'block';
+    span.onclick = function () {
+      modal.style.display = 'none';
+      const items = document.querySelector('#Items');
+      items.scrollBy(1000, 0);
+    };
+    window.onclick = function (event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    };
+  }
+  function handleFake(q) {
+    if (q.fake === true) {
+      setHits(hits + 1);
+      setModalColor('true');
+    } else {
+      setModalColor('fake');
+    }
+
+    const modal = document.getElementById('myModal');
+    const span = document.getElementsByClassName('next')[0];
+    document.getElementById('response').innerText = q.response;
     modal.style.display = 'block';
     span.onclick = function () {
       modal.style.display = 'none';
@@ -43,23 +73,10 @@ export default function Quiz() {
       }
     };
   }
-  function handleFake(q) {
-    if (q.fake === true) setHits(hits + 1);
-
-    const modal = document.getElementById('myModal');
-    const span = document.getElementsByClassName('next')[0];
-    document.getElementById('response').innerText = q.response;
-    modal.style.display = 'block';
-    span.onclick = function () {
-      modal.style.display = 'none';
-      const items = document.querySelector('#Items');
-      items.scrollBy(300, 0);
-    };
-    window.onclick = function (event) {
-      if (event.target === modal) {
-        modal.style.display = 'none';
-      }
-    };
+  function handleNext() {
+    const items = document.querySelector('#Items');
+    items.scrollBy(1000, 0);
+    console.log('next');
   }
   function handleRestart() {
     const items = document.querySelector('#Items');
@@ -80,27 +97,37 @@ export default function Quiz() {
               <p>
                 Teste seus conhecimentos com o Codonto Quiz, um jogo de
                 perguntas e respostas que tem como intuito a divulgação de
-                conteúdos relacionados com Biossegurança em procedimentos
+                conteúdos relacionados a Biossegurança em procedimentos
                 odontológicos.
               </p>
             </div>
+            <div id="imgButtons">
+              <input
+                id="btn"
+                type="image"
+                src={btnIniciar}
+                onClick={() => handleStart()}
+                alt="inciar o game"
+              />
+            </div>
 
-            <img
-              id="btn"
-              onClick={() => handleStart()}
-              src={btnIniciar}
-              alt=""
-            />
             <div id="myModal" className="modal">
               <div className="modal-content">
-                <div className="modal-header">
-                  <h2>Codonto Quiz Responde!!</h2>
+                <div className={`modal-header-${modalColor}`}>
+                  <h2>Codonto Quiz responde!!</h2>
                 </div>
-                <div className="modal-body">
-                  <p id="response" />
+                <div className={`modal-body-${modalColor}`}>
+                  <p id="response" className="textResponse" />
                 </div>
                 <div className="modal-footer">
-                  <span className="next">Entendido!</span>
+                  <input
+                    className="next"
+                    id="btn"
+                    type="image"
+                    src={btnNext}
+                    alt="proxima"
+                    onClick={() => handleNext()}
+                  />
                 </div>
               </div>
             </div>
@@ -112,15 +139,17 @@ export default function Quiz() {
                 <p>{q.question}</p>
               </div>
               <div id="imgButtons">
-                <img
+                <input
                   id="btn"
+                  type="image"
                   src={btnFato}
-                  alt=""
+                  alt="Fato"
                   onClick={() => handleFato(q)}
                 />
-                <img
+                <input
                   id="btn"
                   src={btnFake}
+                  type="image"
                   alt=""
                   onClick={() => handleFake(q)}
                 />
@@ -128,12 +157,13 @@ export default function Quiz() {
             </div>
           ))}
           <div id="Item">
-            <img id="item-img" src={logo} alt="" />
+            <img id="logo-img" src={logo} alt="" />
             <p>
               Parabens Você acertou {hits} / {questions.length} questoes!
             </p>
-            <img
+            <input
               id="btn"
+              type="image"
               onClick={() => handleRestart()}
               src={JogarNovamente}
               alt=""
