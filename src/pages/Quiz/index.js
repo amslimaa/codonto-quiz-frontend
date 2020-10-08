@@ -75,7 +75,7 @@ export default function Quiz() {
   }
   function handleNext() {
     const items = document.querySelector('#Items');
-    items.scrollBy(1000, 0);
+    items.scrollBy(300, 0);
     console.log('next');
   }
   function handleRestart() {
