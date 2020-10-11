@@ -24,6 +24,7 @@ export const Container = styled.div`
   #Item {
     flex-direction: column;
     pointer-events: auto;
+    z-index: 1;
     width: 100%;
     height: 100%;
     scroll-snap-align: start;
@@ -58,33 +59,41 @@ export const Container = styled.div`
       display: flex;
       justify-content: space-around;
     }
-    #btn {
-      width: 30%;
-      height: 20%;
-      background: #e7f1f2;
-      border-radius: 100px;
-      color: #fff;
-      font-weight: 700;
-      margin-top: 16px;
-      display: inline-block;
-      text-align: center;
-      text-decoration: none;
-      font-size: 18px;
-      line-height: 60px;
-    }
-    #btn:hover {
-      filter: brightness(90%);
-    }
-    #btnStart {
-      background-color: #e7f1f2;
-    }
   }
+
+  p {
+    font-size: 30px;
+    font-weight: bolder;
+    letter-spacing: 0.1rem;
+  }
+
+  #btn {
+    width: 30%;
+    height: 20%;
+    background: #e7f1f2;
+    border-radius: 100px;
+    color: #fff;
+    font-weight: 700;
+    margin-top: 16px;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 60px;
+  }
+  #btn:hover {
+    filter: brightness(90%);
+  }
+  #btnStart {
+    background-color: #e7f1f2;
+  }
+
   @media (max-width: 630px) {
+    #btn {
+      width: 40%;
+      height: 20%;
+    }
     #Item {
-      #btn {
-        width: 40%;
-        height: 20%;
-      }
       .textResponse {
         font-size: 16px;
       }
@@ -111,10 +120,15 @@ export const Container = styled.div`
     width: 25%;
   }
   /* The Modal (background) */
+
+  #response {
+    font-size: 15px;
+  }
+  /* Modal Content */
   .modal {
     display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    position: absolute; /* Stay in place */
+    z-index: 9999; /* Sit on top */
     padding-top: 20px; /* Location of the box */
     left: 0;
     top: 0;
@@ -125,10 +139,6 @@ export const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
   }
 
-  #response {
-    font-size: 15px;
-  }
-  /* Modal Content */
   .modal-content {
     position: relative;
     background-color: #fefefe;

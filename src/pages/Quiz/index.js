@@ -85,6 +85,27 @@ export default function Quiz() {
   }
   return (
     <Container>
+      <div id="myModal" className="modal">
+        <div className="modal-content">
+          <div className={`modal-header-${modalColor}`}>
+            <h2>Codonto Quiz responde!!</h2>
+          </div>
+          <div className={`modal-body-${modalColor}`}>
+            <p id="response" className="textResponse" />
+          </div>
+          <div className="modal-footer">
+            <input
+              className="next"
+              id="btn"
+              type="image"
+              src={btnNext}
+              alt="proxima"
+              onClick={() => handleNext()}
+            />
+          </div>
+        </div>
+      </div>
+
       <div id="ItemsWrapper">
         <div id="Items">
           <div id="Item">
@@ -109,27 +130,6 @@ export default function Quiz() {
                 onClick={() => handleStart()}
                 alt="inciar o game"
               />
-            </div>
-
-            <div id="myModal" className="modal">
-              <div className="modal-content">
-                <div className={`modal-header-${modalColor}`}>
-                  <h2>Codonto Quiz responde!!</h2>
-                </div>
-                <div className={`modal-body-${modalColor}`}>
-                  <p id="response" className="textResponse" />
-                </div>
-                <div className="modal-footer">
-                  <input
-                    className="next"
-                    id="btn"
-                    type="image"
-                    src={btnNext}
-                    alt="proxima"
-                    onClick={() => handleNext()}
-                  />
-                </div>
-              </div>
             </div>
           </div>
           {questions.map((q) => (
