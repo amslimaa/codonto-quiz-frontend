@@ -4,12 +4,20 @@ import swal from '@sweetalert/with-react';
 import btnFato from '../../../assets/btnFato.png';
 import btnFake from '../../../assets/btnFake.png';
 import btnNext from '../../../assets/btnNext.png';
+import api from '../../../services/api';
+
+async function Vote(id, isFake) {
+  await api.put('/quiz', {
+    id,
+    fake: isFake,
+  });
+}
 
 export default function CurrentElement({ question, handleNext, HandleHit }) {
   function handleAnswer(isFake) {
-
     if (question.fake === isFake) {
       HandleHit();
+      Vote(question.id, isFake);
       swal({
         icon: 'success',
         buttons: {},
@@ -29,6 +37,7 @@ export default function CurrentElement({ question, handleNext, HandleHit }) {
         ),
       });
     } else {
+      Vote(question.id, isFake);
       swal({
         icon: 'error',
         buttons: {},
