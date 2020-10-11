@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Fade from 'react-reveal/Fade';
 import MainContainer from './components/mainContainer';
 import InitialScreen from './components/initialScreen';
 import LastScreen from './components/lastScreen';
