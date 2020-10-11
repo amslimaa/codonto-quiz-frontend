@@ -9,14 +9,10 @@ export default createGlobalStyle`
     outline: 0;
     box-sizing: border-box;
   }
-  html, body, #root {
-
-  }
-
   body{
-    display: grid;
+    /* display: grid;
     place-items: center;
-    height: 100vh;
+    height: 100vh; */
     background-image: url(${bgImage});
     -webkit-font-smoothing: antialiased !important;
   }
@@ -28,5 +24,17 @@ export default createGlobalStyle`
   }
   button {
     cursor: pointer;
+  }
+
+  .questionAnswer{
+    text-align: justify;
+    margin-top: 48px;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 1.5rem;
+  }
+
+  #btnNext {
+    margin-top: 10px;
+    width: 30%;
   }
 `;

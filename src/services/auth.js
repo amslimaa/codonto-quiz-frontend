@@ -9,7 +9,6 @@ export const isAutenticated = async (token) => {
     localStorage.setItem('id', response.data.id);
     localStorage.setItem('name', response.data.name);
     localStorage.setItem('email', response.data.email);
-    console.log(response);
     return true;
   }
 
