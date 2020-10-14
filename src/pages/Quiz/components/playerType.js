@@ -33,7 +33,7 @@ export default function PlayerType({ handleNext }) {
             Vote(2);
           }}
         >
-          Demais áreas da saude
+          Demais áreas da saúde
         </button>
         <button
           id="btn"
@@ -41,7 +41,7 @@ export default function PlayerType({ handleNext }) {
             Vote(3);
           }}
         >
-          outros
+          Outros
         </button>
       </div>
     </div>
