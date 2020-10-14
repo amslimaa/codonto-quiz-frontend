@@ -16,7 +16,7 @@ export default function PlayerType({ handleNext }) {
     <div id="Item">
       <img id="logo-img" src={logo} alt="" />
       <div className="startGameContainerText">
-        <p>Qual sua área de atuação profissional ?</p>
+        <p>Qual sua área de atuação ?</p>
       </div>
       <div id="imgButtonsPlayers">
         <button
@@ -25,7 +25,7 @@ export default function PlayerType({ handleNext }) {
             Vote(1);
           }}
         >
-          Odonto
+          Odontologia
         </button>
         <button
           id="btn"
