@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import MainContainer from './components/mainContainer';
 import InitialScreen from './components/initialScreen';
+import PlayerType from './components/playerType';
 import LastScreen from './components/lastScreen';
 import CurrentElement from './components/element';
 
-// import btnIniciar from '../../assets/btnIniciar.png';
-// import JogarNovamente from '../../assets/JogarNovamente.png';
-// import logo from '../../assets/logo.png';
-// import btnFato from '../../assets/btnFato.png';
-// import btnFake from '../../assets/btnFake.png';
-// import btnNext from '../../assets/btnNext.png';
 import api from '../../services/api';
 
 export default function Quiz() {
@@ -58,6 +53,11 @@ export default function Quiz() {
         </MainContainer>
       )}
       {questions.length > 0 && index === 10 && (
+        <MainContainer handleNext={setIndex}>
+          <PlayerType handleNext={handleNext} />
+        </MainContainer>
+      )}
+      {questions.length > 0 && index === 11 && (
         <MainContainer handleNext={setIndex}>
           <LastScreen restartQuiz={restartQuiz} hit={hit} />
         </MainContainer>

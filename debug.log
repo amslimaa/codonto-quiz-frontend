@@ -1,2 +1,3 @@
 [0910/115004.634:ERROR:process_reader_win.cc(123)] NtOpenThread: {Acesso Negado} Um processo solicitou acesso a um objeto, mas o direito de acesso não lhe foi concedido. (0xc0000022)
 [0910/115004.634:ERROR:exception_snapshot_win.cc(99)] thread ID 9496 not found in process
+[1014/141255.691:ERROR:directory_reader_win.cc(43)] FindFirstFile: O sistema não pode encontrar o caminho especificado. (0x3)

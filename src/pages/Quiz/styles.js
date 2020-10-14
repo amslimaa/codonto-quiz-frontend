@@ -13,7 +13,6 @@ export const Container = styled.div`
     padding: 50px;
   }
 
-
   #Items {
     display: flex;
     text-align: center;
@@ -50,6 +49,16 @@ export const Container = styled.div`
       display: flex;
       justify-content: space-around;
     }
+    #imgButtonsPlayers {
+      align-items: center;
+      justify-content: center;
+      object-fit: cover;
+      display: flex;
+      justify-content: space-around;
+      button {
+        background-color: #6fa2b9;
+      }
+    }
   }
 
   #btn {
@@ -76,9 +85,21 @@ export const Container = styled.div`
 
   @media (max-width: 630px) {
     #ItemsWrapper {
-    //width: 95vw;
-    padding: 20px;
-  }
+      //width: 95vw;
+      padding: 20px;
+    }
+    #imgButtonsPlayers {
+      font-size: 12px;
+      align-items: center;
+      justify-content: center;
+      object-fit: cover;
+      display: flex;
+      flex-direction: column;
+      button {
+        width: 90%;
+        height: 50%;
+      }
+    }
 
     #btn {
       width: 40%;
